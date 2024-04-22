@@ -66,6 +66,23 @@ install_opera() {
     sudo snap install opera
 }
 
+install_brave() {
+    echo "Installing Brave"
+    sudo snap install brave
+}
+
+install_floorp() {
+    echo "Installing Floorp"
+    url=$(curl -s https://api.github.com/repos/Floorp-Projects/Floorp/releases/latest 2>&1|jq --raw-output '.assets[2] | .browser_download_url')
+    if [ "x$url" != "x" ]; then
+        curl -s -L "$url" | tar xjfv - -C ~/floorp
+        echo "Floorp is extracted to ~/floorp"
+    else
+        echo "Download error"
+        exit 1
+    fi
+}
+
 echo "What browser do you want to install?"
 echo " 1 - Chrome (apt, chromium based)"
 echo " 2 - Chromium (snap)"
@@ -74,7 +91,9 @@ echo " 4 - Vivaldi (apt, chromium based)"
 echo " 5 - Opera (snap, chromium based)"
 echo " 6 - Edge (apt, chromium based)"
 echo " 7 - Firefox (snap)"
-# echo " 8 - Librewolf (apt, firefox based)"
+echo " 8 - Brave (snap, chromium based)"
+echo " 9 - Floorp (wget, firefox based)"
+# echo " 0 - Librewolf (apt, firefox based)"
 echo "What is your choice ?"
 
 read menu_choice
@@ -86,6 +105,8 @@ case "$menu_choice" in
 5) install_opera ;;
 6) install_edge ;;
 7) install_firefox ;;
-# 8) install_librewolf;;
+8) install_brave ;;
+9) install_floorp ;;
+# 0) install_librewolf;;
 *) echo "Nothing to do" ;;
 esac

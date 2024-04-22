@@ -2,7 +2,7 @@
 
 echo "Cleaning APT"
 sudo apt autoclean
-sudo apt autoremove
+sudo apt --purge autoremove
 sudo apt purge ~c
 
 echo "Cleaning SNAP"
