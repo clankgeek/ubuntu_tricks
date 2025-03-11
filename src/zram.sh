@@ -2,9 +2,6 @@
 
 echo "Enabling Zram instead of SWAP file"
 
-sudo swapoff -a
-sudo sed -i '/ swap / s/^/#/' /etc/fstab
-sudo rm -f /swap*
 sudo apt purge zram-config
 
 sudo apt install -y systemd-zram-generator

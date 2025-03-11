@@ -2,7 +2,7 @@
 
 echo "Installing git"
 
-sudo apt install -f git tig vim
+sudo apt install -f git git-lfs tig vim
 git config --global core.editor "vim"
 git config --global core.autocrlf input
 git config --global pull.rebase true
