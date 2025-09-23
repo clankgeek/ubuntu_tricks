@@ -2,10 +2,8 @@
 
 echo "Installing golang"
 
-#sudo add-apt-repository ppa:longsleep/golang-backports
-#sudo apt update
-#sudo apt install -f golang-go
-snap install go --classic
+sudo apt install gcc #needs if CGO_ENABLED=1
+sudo snap install go --classic
 mkdir -p ~/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
