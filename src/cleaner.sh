@@ -1,8 +1,8 @@
 #!/bin/bash
 
 sudo apt autoclean
-sudo apt --purge autoremove
-sudo apt purge ~c
+sudo apt --purge autoremove -y
+sudo apt purge ~c -y
 
 if [ -e /usr/lib/snapd ]; then
     sudo snap set system refresh.retain=2
