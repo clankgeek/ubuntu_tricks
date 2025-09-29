@@ -5,22 +5,22 @@ install_prepare() {
     sudo apt install -y curl wget gnupg apt-transport-https ca-certificates
 }
 
+install_with_extrepo() {
+    sudo apt update
+    sudo apt install extrepo -y
+    sudo extrepo enable "$1"
+    sudo apt update
+    sudo apt install -y "$2"
+}
+
 install_chrome() {
     echo "Installing Google Chrome"
-    install_prepare
-    test -f /usr/share/keyrings/chrome.gpg || wget -O- https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/chrome.gpg
-    sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/chrome.gpg] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
-    sudo apt update
-    sudo apt install -y google-chrome-stable
+    install_with_extrepo "google_chrome" "google-chrome-stable"
 }
 
 install_edge() {
     echo "Installing Microsoft Edge"
-    install_prepare
-    test -f /usr/share/keyrings/microsoft.gpg ||wget -O- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft.gpg
-    sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/microsoft.gpg arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge.list'
-    sudo apt update
-    sudo apt install -y microsoft-edge-stable
+    install_with_extrepo "edge" "microsoft-edge-stable"
 }
 
 install_chromium() {
@@ -30,7 +30,7 @@ install_chromium() {
 
 install_firefox() {
     echo "Installing Firefox"
-    sudo snap install firefox
+    sudo apt install firefox firefox-locale-fr -y
 }
 
 install_thorium() {
@@ -44,12 +44,7 @@ install_thorium() {
 
 install_librewolf() {
     echo "Installing Librewolf"
-    install_prepare
-    source /etc/lsb-release
-    test -f /usr/share/keyrings/librewolf.gpg || wget -O- https://deb.librewolf.net/keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/librewolf.gpg
-    sudo sh -c "echo \"deb [arch=amd64 signed-by=/usr/share/keyrings/librewolf.gpg] https://deb.librewolf.net ${DISTRIB_CODENAME} main\" > /etc/apt/sources.list.d/librewolf-browser.list"
-    sudo apt update
-    sudo apt install librewolf -y
+    install_with_extrepo "librewolf" "librewolf"
 }
 
 install_vivaldi() {
@@ -68,11 +63,7 @@ install_opera() {
 
 install_brave() {
     echo "Installing Brave"
-    install_prepare
-    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-    sudo curl -fsSLo /etc/apt/sources.list.d/brave-browser-release.sources https://brave-browser-apt-release.s3.brave.com/brave-browser.sources
-    sudo apt update
-    sudo apt install brave-browser -y
+    install_with_extrepo "brave_release" "brave-browser"
 }
 
 install_floorp() {
@@ -97,7 +88,7 @@ echo " 6 - Edge (apt, chromium based)"
 echo " 7 - Firefox (snap)"
 echo " 8 - Brave (snap, chromium based)"
 echo " 9 - Floorp (wget, firefox based)"
-# echo " 0 - Librewolf (apt, firefox based)"
+echo " 0 - Librewolf (apt, firefox based)"
 echo "What is your choice ?"
 
 read menu_choice
@@ -111,6 +102,6 @@ case "$menu_choice" in
 7) install_firefox ;;
 8) install_brave ;;
 9) install_floorp ;;
-# 0) install_librewolf;;
+0) install_librewolf;;
 *) echo "Nothing to do" ;;
 esac
