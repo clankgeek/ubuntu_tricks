@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Enable universe repository
+# Installing and configuring tools
+
 echo "Enable universe repository"
 sudo add-apt-repository -y universe
 

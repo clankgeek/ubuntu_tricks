@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Installing and configuring golang
+
 echo "Installing golang"
 
 sudo apt install gcc #needs if CGO_ENABLED=1

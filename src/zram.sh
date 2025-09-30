@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo "Enabling Zram instead of SWAP file"
+# Installing and configuring zswap, needs reboot after install
+
+echo "Enable zswap in addition to swap file"
 
 sudo apt purge zram-config
 
@@ -10,4 +12,4 @@ echo "[zram0]" | sudo tee /etc/systemd/zram-generator.conf.d/compression-algorit
 echo  "compression-algorithm = zstd" | sudo tee -a /etc/systemd/zram-generator.conf.d/compression-algorithm.conf
 
 sudo systemctl daemon-reload
-sudo systemctl restart systemd-zram-setup@zram0.service
+echo "Reboot to activate

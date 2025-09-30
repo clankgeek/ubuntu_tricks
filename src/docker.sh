@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Installing and configuring Docker
+
 echo "Installing docker"
 
 sudo apt install -y docker.io docker-compose-v2

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Installing and configuring git
+
 echo "Installing git"
 
 sudo apt install -f git git-lfs tig vim

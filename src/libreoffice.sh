@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Installing and configuring libreoffice calc / writer
+
 echo "Installing libreoffice writer and calc"
 
 sudo apt install -y libreoffice-l10n-fr libreoffice-writer libreoffice-calc

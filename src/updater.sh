@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# update all
+
 sudo apt update
 sudo apt upgrade -y
 test -f /usr/lib/snapd && sudo snap refresh

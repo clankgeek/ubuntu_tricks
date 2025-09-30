@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Installing and configuring steam
+
 echo "Installing Steam snap version"
 
 sudo snap install steam

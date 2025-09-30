@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Installing and configuring TCP BBR, increase performance network on local area
+
 echo "Replace tcp CUBIC by BBR"
 echo ""
 

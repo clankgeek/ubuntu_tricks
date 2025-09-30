@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# installation of different browsers
+
 install_prepare() {
     sudo apt update
     sudo apt install -y curl wget gnupg apt-transport-https ca-certificates

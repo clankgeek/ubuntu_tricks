@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# cleaning repositories, apt, snap, or flatpak.
+
 sudo apt autoclean
 sudo apt --purge autoremove -y
 sudo apt purge ~c -y

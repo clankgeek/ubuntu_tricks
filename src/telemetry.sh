@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Remove telemetry and ads
+
 echo "Disable telemetry and ads"
 test -f /usr/bin/pro && sudo pro config set apt_news=false
 test -f /usr/bin/ubuntu-report && ubuntu-report -f send no
