@@ -2,10 +2,87 @@
 
 Uniquement pour la version 24.04
 
-Quelques scripts qui permettent de faciliter l'installation / la configuration d'K/Ubuntu 23.10.
+Quelque scripts helper pour faciliter l'utilisation d'ubuntu.
 
 ---
 
-Only for version 24.04
+## browser.sh
 
-Some scripts that facilitate the installation/configuration of K/Ubuntu 23.10.
+Installer facilement différent navigateurs:
+- Chrome (apt, chromium based)
+- Chromium (snap)
+- Thorium (apt, chromium based)
+- Vivaldi (apt, chromium based)
+- Opera (snap, chromium based)
+- Edge (apt, chromium based)
+- Firefox (snap)
+- Brave (apt, chromium based)
+- Floorp (wget, firefox based)
+- Librewolf (apt, firefox based)
+
+## cleaner.sh
+
+Pour nettoyer les paquets apt qui ne sont plus utilisés, mais aussi snap et flatpak.
+
+## docker.sh
+
+Installer docker, docker compose, et ajouter votre user au groupe docker.
+
+## flatpak.sh
+
+Installe flatpak et active le repo flathub.
+
+## git.sh
+
+Installe git et le configure pour utilisation avec vim.
+
+## golang.sh
+
+Installe golang en version snap pour avoir la dernière version disponible, le configure dans le repertoire ~/go
+
+## kvm.sh
+
+Active kvm et installe le client graphique virt-manager
+
+## libreoffice.sh
+
+Installe libreoffice writer et calc avec support de gnome ou kde.
+
+## misc.sh
+
+Active le repository Universe puis installe différent tools comme
+- curl
+- rar 
+- unrar 
+- ttf-mscorefonts-installer 
+- gparted 
+- vim 
+- nomacs
+
+## steam.sh
+
+Installe le lanceur steam (snap) et passe mesa en kisak-fresh
+
+## tcpbbr.sh
+
+Passe la congestion reseau de cubic a bbr pour augmenter le débit en local
+
+## telemetry.sh
+
+Désactive la télémétrie et les pubs.
+
+## updater.sh
+
+- Passe la rétention snap a 2 versions
+- Met à jour les paquets apt
+- Met à jour les paquets snap
+- Met à jour les paquets flatpak
+
+## vscode.sh
+
+Installe visual studio code en version snap
+
+## zram.sh
+
+Active zswap avec compression zstd, actif après reboot.
+
