@@ -12,4 +12,4 @@ echo "[zram0]" | sudo tee /etc/systemd/zram-generator.conf.d/compression-algorit
 echo  "compression-algorithm = zstd" | sudo tee -a /etc/systemd/zram-generator.conf.d/compression-algorithm.conf
 
 sudo systemctl daemon-reload
-echo "Reboot to activate
+echo "Reboot to activate"

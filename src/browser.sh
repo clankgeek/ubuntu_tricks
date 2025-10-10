@@ -4,12 +4,11 @@
 
 install_prepare() {
     sudo apt update
-    sudo apt install -y curl wget gnupg apt-transport-https ca-certificates
+    sudo apt install -y curl wget gnupg apt-transport-https ca-certificates extrepo
 }
 
 install_with_extrepo() {
-    sudo apt update
-    sudo apt install extrepo -y
+    install_prepare
     sudo extrepo enable "$1"
     sudo apt update
     sudo apt install -y "$2"
@@ -27,6 +26,7 @@ install_edge() {
 
 install_chromium() {
     echo "Installing Chromium"
+    sudo apt install -y snapd
     sudo snap install chromium
 }
 
@@ -60,6 +60,7 @@ install_vivaldi() {
 
 install_opera() {
     echo "Installing Opera"
+    sudo apt install -y snapd
     sudo snap install opera
 }
 
