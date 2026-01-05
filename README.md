@@ -82,6 +82,10 @@ Désactive la télémétrie et les pubs.
 
 Installe visual studio code en version snap
 
+## x86-64-v3
+
+Si votre ubuntu est >= a la version 25.10 et que votre cpu est compatible, installe l'architecture x86-64-v3 à la place de la x86-64-v1
+
 ## zram.sh
 
 Active zswap avec compression zstd, actif après reboot.
