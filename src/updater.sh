@@ -4,5 +4,5 @@
 
 sudo apt update
 sudo apt upgrade -y
-test -f /usr/lib/snapd && sudo snap refresh
-test -f /usr/bin/flatpak && sudo flatpak update -y
+command -v snap &>/dev/null && sudo snap refresh
+command -v flatpak &>/dev/null && sudo flatpak update -y

@@ -59,9 +59,17 @@ Active le repository Universe puis installe différent tools comme
 - vim 
 - nomacs
 
-## steam.sh
+## steam-launcher.sh
 
 Installe le lanceur steam (snap) et passe mesa en kisak-fresh
+
+## lutris-launcher.sh
+
+Installe le lanceur lutris (flatpak)
+
+## heroic-launcher.sh
+
+Installe le lanceur heroic (flatpak)
 
 ## tcpbbr.sh
 
