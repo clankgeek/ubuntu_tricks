@@ -12,4 +12,4 @@ if [ -e /usr/lib/snapd ]; then
     LANG=C snap saved|grep -Eo "^([0-9]+)" | while read snapid; do sudo snap forget "$snapid"; done
 fi
 
-test -f /usr/bin/flatpak && flatpak uninstall --unused
+command -v flatpak &>/dev/null && flatpak uninstall --unused
