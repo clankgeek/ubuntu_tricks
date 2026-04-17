@@ -5,6 +5,8 @@
 install_prepare() {
 	sudo apt update
 	sudo apt install -y curl wget gnupg apt-transport-https ca-certificates extrepo
+	sudo sed -i 's/^# - contrib/- contrib/' /etc/extrepo/config.yaml
+	sudo sed -i 's/^# - non-free/- non-free/' /etc/extrepo/config.yaml
 }
 
 install_with_extrepo() {

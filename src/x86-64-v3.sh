@@ -8,7 +8,7 @@ else
 fi
 
 if dpkg --compare-versions "$DISTRIB_RELEASE" "ge" "25.10"; then
-    echo "distribution is ready to receive x86-64-v3 architecure"
+    echo "distribution is ready to receive x86-64-v3 architecture"
     echo 'APT::Architecture-Variants "amd64v3";' | sudo tee /etc/apt/apt.conf.d/99enable-amd64v3
     sudo apt update
     sudo apt full-upgrade
