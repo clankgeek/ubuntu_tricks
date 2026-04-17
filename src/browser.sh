@@ -73,15 +73,7 @@ install_brave() {
 
 install_floorp() {
 	echo "Installing Floorp"
-	url=$(curl -s https://api.github.com/repos/Floorp-Projects/Floorp/releases/latest 2>&1 | jq --raw-output '.assets[2] | .browser_download_url')
-	if [ "x$url" != "x" ]; then
-		mkdir -p ~/floorp
-		curl -s -L "$url" | tar xjfv - -C ~/floorp
-		echo "Floorp is extracted to ~/floorp"
-	else
-		echo "Download error"
-		exit 1
-	fi
+	install_with_extrepo "floorp" "floorp"
 }
 
 echo "What browser do you want to install?"
@@ -93,7 +85,7 @@ echo " 5 - Opera (snap, chromium based)"
 echo " 6 - Edge (apt, chromium based)"
 echo " 7 - Firefox (snap)"
 echo " 8 - Brave (apt, chromium based)"
-echo " 9 - Floorp (wget, firefox based)"
+echo " 9 - Floorp (apt, firefox based)"
 echo " 0 - Librewolf (apt, firefox based)"
 echo "What is your choice ?"
 
