@@ -76,6 +76,11 @@ install_floorp() {
 	install_with_extrepo "floorp" "floorp"
 }
 
+install_mullvad() {
+	echo "Installing Mullvad Browser"
+	install_with_extrepo "mullvad" "mullvad-browser"
+}
+
 echo "What browser do you want to install?"
 echo " 1 - Chrome (apt, chromium based)"
 echo " 2 - Chromium (snap)"
@@ -87,6 +92,7 @@ echo " 7 - Firefox (snap)"
 echo " 8 - Brave (apt, chromium based)"
 echo " 9 - Floorp (apt, firefox based)"
 echo " 0 - Librewolf (apt, firefox based)"
+echo " a - Mullvad Browser (apt, firefox based)"
 echo "What is your choice ?"
 
 read menu_choice
@@ -101,5 +107,6 @@ case "$menu_choice" in
 8) install_brave ;;
 9) install_floorp ;;
 0) install_librewolf ;;
+a) install_mullvad ;;
 *) echo "Nothing to do" ;;
 esac
