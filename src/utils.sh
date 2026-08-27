@@ -23,7 +23,7 @@ setup_git() {
 	git config --global core.autocrlf input
 	git config --global pull.rebase true
 	git config --global rebase.autoStash true
-	tee -a ~/.bashrc << EOM
+	tee -a ~/.bashrc <<EOM
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -38,9 +38,9 @@ setup_golang() {
 	mkdir -p ~/go/bin
 	export GOPATH=$HOME/go
 	export PATH=$PATH:$GOPATH/bin
-	echo "" >> ~/.bashrc
-	echo "export GOPATH=$HOME/go" >> ~/.bashrc
-	echo "export PATH=\$PATH:\$GOPATH/bin" >> ~/.bashrc
+	echo "" >>~/.bashrc
+	echo "export GOPATH=$HOME/go" >>~/.bashrc
+	echo "export PATH=\$PATH:\$GOPATH/bin" >>~/.bashrc
 }
 
 setup_tcpbbr() {
@@ -99,7 +99,14 @@ setup_misc() {
 	sudo apt install -y curl rar unrar ttf-mscorefonts-installer gparted vim nomacs
 }
 
+setup_disable_vulkan() {
+	echo "Disable Vulkan for Nautilus"
+	echo 'export GSK_RENDERER=ngl' >>~/.profile
+	systemctl --user set-environment GSK_RENDERER=ngl
+}
+
 echo "What do you want to configure?"
+echo " 0 - Disable Vulkan for Nautilus (if nautilus it's very slow to start up)"
 echo " 1 - Install Docker (apt)"
 echo " 2 - Install Flatpak (apt)"
 echo " 3 - Install Git (apt)"
@@ -113,6 +120,7 @@ echo "What is your choice ?"
 
 read menu_choice
 case "$menu_choice" in
+0) setup_disable_vulkan ;;
 1) setup_docker ;;
 2) setup_flatpak ;;
 3) setup_git ;;
