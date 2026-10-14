@@ -46,6 +46,15 @@ install_kvm() {
 	sudo apt install -y qemu-kvm libvirt-daemon-system virt-manager
 }
 
+install_element_matrix() {
+	echo "Installing Element Matrix"
+	sudo apt install -y wget apt-transport-https
+	sudo wget -O /usr/share/keyrings/element-io-archive-keyring.gpg https://packages.element.io/debian/element-io-archive-keyring.gpg
+	echo "deb [signed-by=/usr/share/keyrings/element-io-archive-keyring.gpg] https://packages.element.io/debian/ default main" | sudo tee /etc/apt/sources.list.d/element-io.list
+	sudo apt update
+	sudo apt install -y element-desktop
+}
+
 echo "What software do you want to install?"
 echo " 1 - LibreOffice (apt)"
 echo " 2 - Mattermost (snap)"
@@ -53,6 +62,7 @@ echo " 3 - Teams for Linux (apt)"
 echo " 4 - Visual Studio Code (snap)"
 echo " 5 - VirtualBox 7.2 (apt)"
 echo " 6 - KVM (apt)"
+echo " 7 - Element Matrix (apt)"
 echo "What is your choice ?"
 
 read menu_choice
@@ -63,5 +73,6 @@ case "$menu_choice" in
 4) install_vscode ;;
 5) install_virtualbox ;;
 6) install_kvm ;;
+7) install_element_matrix ;;
 *) echo "Nothing to do" ;;
 esac

@@ -40,6 +40,7 @@ Menu interactif pour installer différents logiciels :
 - Visual Studio Code (snap)
 - VirtualBox 7.2 (apt)
 - KVM / virt-manager (apt)
+- Element Matrix (apt)
 
 ## updater.sh
 
