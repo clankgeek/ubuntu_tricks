@@ -71,6 +71,7 @@ setup_x86_64_v3() {
 		echo "CPU not compatible with X86-64-v3, exiting"
 		exit 1
 	fi
+	. /etc/lsb-release
 	if dpkg --compare-versions "$DISTRIB_RELEASE" "ge" "25.10"; then
 		echo "Distribution is ready to receive x86-64-v3 architecture"
 		echo 'APT::Architecture-Variants "amd64v3";' | sudo tee /etc/apt/apt.conf.d/99enable-amd64v3
